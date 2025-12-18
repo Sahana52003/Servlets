@@ -1,4 +1,4 @@
-package com.xworkz.api.model;
+package com.xworkz.webapp.portal;
 
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
@@ -7,14 +7,13 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/at",loadOnStartup =1)
-public class Bank extends GenericServlet {
-
-    public Bank(){
-        System.out.println("Check the balance through the pinnumber");
+@WebServlet(urlPatterns = "/m",loadOnStartup =2)
+public class Music extends GenericServlet {
+    public Music(){
+        System.out.println("Play and listen music");
     }
-
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+
     }
 }
