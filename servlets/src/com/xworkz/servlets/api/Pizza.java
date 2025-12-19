@@ -13,8 +13,19 @@ public class Pizza extends GenericServlet {
    public Pizza(){
        System.out.println("Order is delivered");
    }
+
+    @Override
+    public void init() throws ServletException {
+        System.out.println("sending a message");
+    }
+
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+        System.out.println("is being called");
+    }
 
+    @Override
+    public void destroy() {
+        System.out.println("destry the object");
     }
 }

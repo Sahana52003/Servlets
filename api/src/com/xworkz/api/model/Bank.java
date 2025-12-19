@@ -16,5 +16,6 @@ public class Bank extends GenericServlet {
 
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+
     }
 }
