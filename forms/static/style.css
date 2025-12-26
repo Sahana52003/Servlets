@@ -1,0 +1,53 @@
+.body{
+padding-top:150px;
+background:url('download (7).jpg') ;
+
+}
+
+.head{
+    background-color: transparent;
+    border:2px solid rgba(255,255,255,.2);
+    width: 350px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: right;
+    text-align: center;
+    margin-left: 550px;
+}
+
+h1{
+color:#1877f2;
+
+}
+.input{
+  width: 85%;
+  padding: 17px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 17px;
+}
+
+#button {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    width: 333px;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+}
+#login {
+    text-decoration: none;
+    color: #1877f2;
+    font-size: 14px;
+}
+#account {
+    background-color: #42ba;
+    color: white;
+    border:none;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+}

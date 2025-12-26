@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Shaadi Registration</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+        .box {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: green;
+            text-align: center;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+        }
+        button {
+            width: 100%;
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Register FREE</h2>
+
+    <form action="registrat">
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <label>Profile For</label>
+        <select name="profileFor">
+            <option>Self</option>
+            <option>Son</option>
+            <option>Daughter</option>
+            <option>Brother</option>
+            <option>Sister</option>
+        </select>
+
+        <label>First Name</label>
+        <input type="text" name="fname" required>
+
+        <label>Last Name</label>
+        <input type="text" name="lname" required>
+
+        <label>Gender</label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <br><br>
+
+        <label>Date of Birth</label>
+        <input type="date" name="dob">
+
+        <label>Religion</label>
+        <select name="religion">
+            <option>Hindu</option>
+            <option>Muslim</option>
+            <option>Christian</option>
+            <option>Other</option>
+        </select>
+
+        <label>Mother Tongue</label>
+        <select name="language">
+            <option>Kannada</option>
+            <option>Hindi</option>
+            <option>English</option>
+            <option>Telugu</option>
+        </select>
+
+        <label>Living In</label>
+        <select name="country">
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+        </select>
+
+        <label>Mobile Number</label>
+        <input type="text" name="mobile">
+
+        <button type="submit">Submit</button>
+
+    </form>
+</div>
+</body>
+</html>
