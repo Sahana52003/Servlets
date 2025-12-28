@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Management/Management.iml" filepath="$PROJECT_DIR$/Management/Management.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appliction/appliction.iml" filepath="$PROJECT_DIR$/appliction/appliction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/formvalidation.iml" filepath="$PROJECT_DIR$/formvalidation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/information/information.iml" filepath="$PROJECT_DIR$/information/information.iml" />
+      <module fileurl="file://$PROJECT_DIR$/login/login.iml" filepath="$PROJECT_DIR$/login/login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/medical/medical.iml" filepath="$PROJECT_DIR$/medical/medical.iml" />
+      <module fileurl="file://$PROJECT_DIR$/orders/orders.iml" filepath="$PROJECT_DIR$/orders/orders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/payments/payments.iml" filepath="$PROJECT_DIR$/payments/payments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/support/support.iml" filepath="$PROJECT_DIR$/support/support.iml" />
+      <module fileurl="file://$PROJECT_DIR$/website/website.iml" filepath="$PROJECT_DIR$/website/website.iml" />
+    </modules>
+  </component>
+</project>
