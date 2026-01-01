@@ -1,5 +1,8 @@
 package com.xworkz.payments.account;
 
+import com.xworkz.payments.account.dto.PaymentDTO;
+import com.xworkz.payments.account.service.PaymentService;
+
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -10,9 +13,10 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/payment",loadOnStartup = 8)
 public class Account extends GenericServlet {
-    public Account(){
+    public Account() {
         System.out.println("Account Details");
     }
+
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         servletResponse.setContentType("text/html");
@@ -36,14 +40,29 @@ public class Account extends GenericServlet {
         System.out.println("Agreed Terms: " + ok);
         String currency = servletRequest.getParameter("currency");
         System.out.println("Currency: " + currency);
-        PrintWriter printWriter=servletResponse.getWriter();
-        printWriter.println("<html>");
-        printWriter.println("<head>");
-        printWriter.println("<title>order</title>");
-        printWriter.println("</head>");
-        printWriter.println("<h1> Hi</h1>"+name);
-        printWriter.println("<p style='color:green'>Payed Amount is Success</p>");
-        printWriter.println("</body>");
-        printWriter.println("</html>");
+        PrintWriter printWriter = servletResponse.getWriter();
+        Double amt=Double.parseDouble(amount);
+        PaymentDTO paymentDTO=new PaymentDTO(name,card,password,expiry,amount,method,email,mobile,currency);
+        PaymentService paymentService = new PaymentService();
+        boolean isValidate = paymentService.checkData(paymentDTO);
+        if (isValidate) {
+            printWriter.println("<html>");
+            printWriter.println("<head>");
+            printWriter.println("<title>payment send</title>");
+            printWriter.println("</head>");
+            printWriter.println("<h1> Hi</h1>" + name);
+            printWriter.println("<p style='color:green'>Payed Amount is Success</p>");
+            printWriter.println("</body>");
+            printWriter.println("</html>");
+        } else {
+            printWriter.println("<html>");
+            printWriter.println("<head>");
+            printWriter.println("<title>Payments</title>");
+            printWriter.println("</head>");
+            printWriter.println("<h1> Hi</h1>");
+            printWriter.println("<p style='color:red'>Please input correct details</p>");
+            printWriter.println("</body>");
+            printWriter.println("</html>");
+        }
     }
 }

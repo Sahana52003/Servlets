@@ -7,11 +7,11 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/start",loadOnStartup = 1)
+@WebServlet(urlPatterns = "/start")//,loadOnStartup = 1)
 public class Bicycle extends GenericServlet {
 
     public Bicycle(){
-        System.out.println("starts to ride a bicycle");
+//        System.out.println("starts to ride a bicycle");
     }
 
     @Override

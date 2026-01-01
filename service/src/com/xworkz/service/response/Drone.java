@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns ="/fly",loadOnStartup = 10)
+@WebServlet(urlPatterns ="/fly")//,loadOnStartup = 10)
 public class Drone extends GenericServlet {
 
     public Drone(){
-        System.out.println("Where it finds some suspicious thing through a surveillance");
+        //System.out.println("Where it finds some suspicious thing through a surveillance");
     }
 
 

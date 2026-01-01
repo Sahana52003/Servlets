@@ -1,5 +1,8 @@
 package com.xworkz.management.signup;
 
+import com.xworkz.management.signup.dto.ManagementDTO;
+import com.xworkz.management.signup.service.ManagementService;
+
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -37,6 +40,11 @@ public class Employee extends GenericServlet {
         String badgeColor = servletRequest.getParameter("badgeColor");
         System.out.println("Badge Color: " + badgeColor);
         PrintWriter printWriter=servletResponse.getWriter();
+        Double salaries=Double.valueOf(salary);
+        ManagementDTO managementDTO=new ManagementDTO(employeeId,name,salary,department,role);
+        ManagementService managementService = new ManagementService();
+        boolean isValidate = managementService.checkData(managementDTO);
+        if (isValidate) {
         printWriter.println("<html>");
         printWriter.println("<head>");
         printWriter.println("<title>order</title>");
@@ -45,5 +53,15 @@ public class Employee extends GenericServlet {
         printWriter.println("<p style='color:green'>Details are Registered Successfully</p>");
         printWriter.println("</body>");
         printWriter.println("</html>");
-    }
+    }else{
+        printWriter.println("<html>");
+            printWriter.println("<head>");
+            printWriter.println("<title>Employee Details</title>");
+            printWriter.println("</head>");
+            printWriter.println("<h1> Hi</h1>");
+            printWriter.println("<p style='color:red'>Please input correct details</p>");
+            printWriter.println("</body>");
+            printWriter.println("</html>");
+        }
+}
 }

@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns ="/type",loadOnStartup = 6)
+@WebServlet(urlPatterns ="/type")//,loadOnStartup = 6)
 public class Keyboard extends GenericServlet {
 
     public Keyboard(){
-        System.out.println("typing a letters ");
+        //System.out.println("typing a letters ");
     }
 
 

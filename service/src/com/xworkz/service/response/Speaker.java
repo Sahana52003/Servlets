@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns ="/play",loadOnStartup = 4)
+@WebServlet(urlPatterns ="/play")//,loadOnStartup = 4)
 public class Speaker extends GenericServlet {
 
     public Speaker(){
-        System.out.println("increase a volume or decrease a volume");
+        //System.out.println("increase a volume or decrease a volume");
     }
 
 

@@ -8,11 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns = "/update",loadOnStartup = 7)
+@WebServlet(urlPatterns = "/update")//,loadOnStartup = 7)
 public class Chain extends GenericServlet {
 
     public Chain(){
-        System.out.println("their desgin is complete to showcase in a shop");
+
+        //System.out.println("their desgin is complete to showcase in a shop");
     }
 
 
