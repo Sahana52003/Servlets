@@ -9,11 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns ="/info",loadOnStartup = 2)
+@WebServlet(urlPatterns ="/info")//,loadOnStartup = 2)
 public class State extends GenericServlet {
 
     public State(){
-        System.out.println("have a n number of states in india");
+
+        //System.out.println("have a n number of states in india");
     }
 
 

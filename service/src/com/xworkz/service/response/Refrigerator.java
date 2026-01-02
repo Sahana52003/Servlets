@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns ="/cool",loadOnStartup = 9)
+@WebServlet(urlPatterns ="/cool")//,loadOnStartup = 9)
 public class Refrigerator extends GenericServlet {
 
     public Refrigerator(){
-        System.out.println("stores the items in refrigerator");
+        //System.out.println("stores the items in refrigerator");
     }
 
 

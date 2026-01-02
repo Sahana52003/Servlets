@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns ="/order",loadOnStartup = 8)
+@WebServlet(urlPatterns ="/order")//,loadOnStartup = 8)
 public class Flipkart extends GenericServlet {
 
     public Flipkart(){
-        System.out.println("delivered the items through the adress");
+        //System.out.println("delivered the items through the adress");
     }
 
 

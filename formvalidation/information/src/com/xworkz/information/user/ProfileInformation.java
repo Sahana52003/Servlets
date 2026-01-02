@@ -1,5 +1,8 @@
 package com.xworkz.information.user;
 
+import com.xworkz.information.user.dto.InformationDTO;
+import com.xworkz.information.user.service.InformationService;
+
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -10,9 +13,10 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/profileInfo",loadOnStartup = 4)
 public class ProfileInformation extends GenericServlet {
-    public ProfileInformation(){
+    public ProfileInformation() {
         System.out.println("Profile Information");
     }
+
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         servletResponse.setContentType("text/html");
@@ -52,14 +56,28 @@ public class ProfileInformation extends GenericServlet {
         System.out.println("Favorite Color: " + favColor);
         String experienceLevel = servletRequest.getParameter("experienceLevel");
         System.out.println("Experience Level: " + experienceLevel);
-        PrintWriter printWriter=servletResponse.getWriter();
-        printWriter.println("<html>");
-        printWriter.println("<head>");
-        printWriter.println("<title>order</title>");
-        printWriter.println("</head>");
-        printWriter.println("<h1> Hi</h1>"+name);
-        printWriter.println("<p style='color:green'>Profile Is Created</p>");
-        printWriter.println("</body>");
-        printWriter.println("</html>");
+        PrintWriter printWriter = servletResponse.getWriter();
+        InformationDTO informationDTO=new InformationDTO(firstName,lastName,email,password,age,mobile,dob,gender,country,address);
+        InformationService informationService=new InformationService();
+        boolean isValidate = informationService.checkData(informationDTO);
+        if (isValidate) {
+            printWriter.println("<html>");
+            printWriter.println("<head>");
+            printWriter.println("<title>order</title>");
+            printWriter.println("</head>");
+            printWriter.println("<h1> Hi</h1>" + name);
+            printWriter.println("<p style='color:green'>Profile Is Created</p>");
+            printWriter.println("</body>");
+            printWriter.println("</html>");
+        } else {
+            printWriter.println("<html>");
+            printWriter.println("<head>");
+            printWriter.println("<title>Information</title>");
+            printWriter.println("</head>");
+            printWriter.println("<h1> Hi</h1>");
+            printWriter.println("<p style='color:red'>Please input correct details</p>");
+            printWriter.println("</body>");
+            printWriter.println("</html>");
+        }
     }
 }

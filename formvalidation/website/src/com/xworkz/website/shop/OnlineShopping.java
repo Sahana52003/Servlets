@@ -1,5 +1,8 @@
 package com.xworkz.website.shop;
 
+import com.xworkz.website.shop.dto.WebsiteDTO;
+import com.xworkz.website.shop.service.WebsiteService;
+
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -10,6 +13,7 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns ="/checkout",loadOnStartup = 10)
 public class OnlineShopping extends GenericServlet {
+
     public OnlineShopping(){
         System.out.println("Shopping Information is Created");
     }
@@ -45,6 +49,17 @@ public class OnlineShopping extends GenericServlet {
         String level=servletRequest.getParameter("level");
         System.out.println("Terms are : " + level);
         PrintWriter printWriter=servletResponse.getWriter();
+        WebsiteDTO websiteDTO = new WebsiteDTO(
+                product,
+                quantity,
+                name,
+                password,
+                email,
+                mobile,
+                shipping);
+        WebsiteService websiteService=new WebsiteService();
+        boolean isValidate = websiteService.checkStatus(websiteDTO);
+        if (isValidate) {
         printWriter.println("<html>");
         printWriter.println("<head>");
         printWriter.println("<title>order</title>");
@@ -53,5 +68,15 @@ public class OnlineShopping extends GenericServlet {
         printWriter.println("<p style='color:green'>Order Confirmed</p>");
         printWriter.println("</body>");
         printWriter.println("</html>");
+    }else {
+            printWriter.println("<html>");
+            printWriter.println("<head>");
+            printWriter.println("<title>Online Shopping</title>");
+            printWriter.println("</head>");
+            printWriter.println("<h1> Hi</h1>");
+            printWriter.println("<p style='color:red'>Please input correct details</p>");
+            printWriter.println("</body>");
+            printWriter.println("</html>");
+        }
     }
 }

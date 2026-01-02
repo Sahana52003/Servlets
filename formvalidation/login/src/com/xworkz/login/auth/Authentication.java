@@ -1,5 +1,8 @@
 package com.xworkz.login.auth;
 
+import com.xworkz.login.auth.dto.LoginDTO;
+import com.xworkz.login.auth.service.LoginService;
+
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -10,9 +13,10 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/loginuser",loadOnStartup = 5)
 public class Authentication extends GenericServlet {
-    public Authentication(){
+    public Authentication() {
         System.out.println("Creating login form fro auth");
     }
+
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         servletResponse.setContentType("text/html");
@@ -38,14 +42,28 @@ public class Authentication extends GenericServlet {
         System.out.println("Profile Pic File Name: " + profilePic);
         String color = servletRequest.getParameter("color");
         System.out.println("Favorite Color: " + color);
-        PrintWriter printWriter=servletResponse.getWriter();
-        printWriter.println("<html>");
-        printWriter.println("<head>");
-        printWriter.println("<title>order</title>");
-        printWriter.println("</head>");
-        printWriter.println("<h1> Hi</h1>"+name);
-        printWriter.println("<p style='color:green'>Success</p>");
-        printWriter.println("</body>");
-        printWriter.println("</html>");
+        PrintWriter printWriter = servletResponse.getWriter();
+        LoginDTO loginDTO=new LoginDTO(name,email,password);
+        LoginService loginService = new LoginService();
+        boolean isValidate = loginService.checkData(loginDTO);
+        if (isValidate) {
+            printWriter.println("<html>");
+            printWriter.println("<head>");
+            printWriter.println("<title>order</title>");
+            printWriter.println("</head>");
+            printWriter.println("<h1> Hi</h1>" + name);
+            printWriter.println("<p style='color:green'>Success</p>");
+            printWriter.println("</body>");
+            printWriter.println("</html>");
+        } else {
+            printWriter.println("<html>");
+            printWriter.println("<head>");
+            printWriter.println("<title>Login Detailsk</title>");
+            printWriter.println("</head>");
+            printWriter.println("<h1> Hi</h1>");
+            printWriter.println("<p style='color:red'>Please input correct details</p>");
+            printWriter.println("</body>");
+            printWriter.println("</html>");
+        }
     }
 }

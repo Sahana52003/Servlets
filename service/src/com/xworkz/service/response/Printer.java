@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns ="/print",loadOnStartup = 5)
+@WebServlet(urlPatterns ="/print")//,loadOnStartup = 5)
 public class Printer extends GenericServlet {
 
     public Printer(){
-        System.out.println("priniting a documents ");
+        //System.out.println("priniting a documents ");
     }
 
 

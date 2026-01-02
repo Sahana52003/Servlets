@@ -1,5 +1,8 @@
 package com.xworkz.medical.registration;
 
+import com.xworkz.medical.registration.dto.MedicalDTO;
+import com.xworkz.medical.registration.service.MedicalService;
+
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -39,6 +42,11 @@ public class HospitalRegistration extends GenericServlet {
         String color = servletRequest.getParameter("color");
         System.out.println("Color: " + color);
         PrintWriter printWriter=servletResponse.getWriter();
+        Integer agee=Integer.parseInt(age);
+        MedicalDTO medicalDTO=new MedicalDTO(name,age,gender,date,bloodGroup,email,phone);
+        MedicalService medicalService = new MedicalService();
+        boolean isValidate = medicalService.checkData(medicalDTO);
+        if (isValidate) {
         printWriter.println("<html>");
         printWriter.println("<head>");
         printWriter.println("<title>order</title>");
@@ -47,5 +55,15 @@ public class HospitalRegistration extends GenericServlet {
         printWriter.println("<p style='color:green'>Patient Detail is Registered</p>");
         printWriter.println("</body>");
         printWriter.println("</html>");
-    }
+    }else{
+        printWriter.println("<html>");
+            printWriter.println("<head>");
+            printWriter.println("<title>Reports</title>");
+            printWriter.println("</head>");
+            printWriter.println("<h1> Hi</h1>");
+            printWriter.println("<p style='color:red'>Please input correct details</p>");
+            printWriter.println("</body>");
+            printWriter.println("</html>");
+        }
+}
 }
